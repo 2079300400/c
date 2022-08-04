@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+   <input type="text" id="input">
+    </div>
+    
+</body>
+
+<script>
+
+  let input = document.getElementById('input');
+
+ //  
+
+
+
+function debounce(fn,t=500){
+    let timer = null;//  
+    return function(...arg){
+        clearTimeout(timer);
+            
+        timer = setTimeout(v=>{
+            // fn  业务逻辑  具体要干的事
+            fn.apply(this,arg)
+        },t)
+    }
+}
+
+
+
+
+  input.oninput = debounce(function(){
+            console.log(this.value)
+        },1000)
+
+
+
+</script>
+
+</html>
